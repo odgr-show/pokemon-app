@@ -11,8 +11,8 @@ export const GetPokemon = (url) => {
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
-                resolve(data);
-                console.log(data);
+                // console.log(data);
+                resolve(data)
             });
     });
 };

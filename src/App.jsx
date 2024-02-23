@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { GetAllPokemon, GetPokemon } from './utils/GetAllPokemon';
+import { GetAllPokemon, GetPokemon } from './utils/Pokemon';
+import { Card } from './components/Card/Card';
 
 import './App.css';
 
@@ -16,7 +17,7 @@ export const App = () => {
             let res = await GetAllPokemon(initialURL);
             //各ポケモンの詳細なデータを取得
             loadPokemon(res.results);
-            // console.log(res);
+            // console.log(res.results);
             setLoading(false);
         };
         fetchPokemonData();
@@ -30,13 +31,28 @@ export const App = () => {
                 return pokemonRecord;
             })
         );
+        setPokemonData(_pokemonData);
     };
 
     console.log(pokemonData);
 
     return (
         <div className="App">
-            {loading ? <h1>ロード中・・・</h1> : <h1>ポケモンデータを取得しました。</h1>}
+            {loading ? (<h1>ロード中・・・</h1>) : (
+                <>
+                <div className='pokemonCardContainer'>
+                {pokemonData.map((pokemon, i) => {
+                    return <>
+                    <div>
+                        <Card key={i} pokemon={pokemon} />
+                    </div>
+                    </>
+                })}
+                </div>
+                </>
+            )
+            
+            }
         </div>
     );
 };
