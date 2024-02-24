@@ -1,0 +1,12 @@
+.App {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+.pokemonCardContainer {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    margin-block-start: 20px;
+}

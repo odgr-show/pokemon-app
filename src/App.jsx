@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { GetAllPokemon, GetPokemon } from './utils/Pokemon';
 import { Card } from './components/Card/Card';
 
-import './App.css';
+import './App.scss';
 
 export const App = () => {
     // ポケモンデータの取得
